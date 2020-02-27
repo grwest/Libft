@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 20:14:07 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/20 16:44:37 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/26 16:34:32 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ char	*ft_strtrim(char const *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	**ft_strsplit(char const *s, char c);
+char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strstr(const char *haystack, const char *needle);
-char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 void	ft_putnbr(int n);
@@ -65,9 +65,9 @@ void	ft_putendl_fd(char const *s, int fd);
 void	ft_striter(char *s, void (*f)(char *));
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 size_t	ft_strlen(const char *s);
