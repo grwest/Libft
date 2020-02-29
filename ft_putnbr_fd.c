@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:15:48 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/21 14:10:56 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 22:21:31 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,13 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }
+
+#ifdef TEST
+
+int		main(void)
+{
+	ft_putnbr_fd(1234, 1);
+	return (0);
+}
+
+#endif

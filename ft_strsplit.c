@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 14:38:07 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/25 17:58:41 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 23:00:10 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,26 @@ char		**ft_strsplit(char const *s, char c)
 	array[i] = NULL;
 	return (array);
 }
+
+#ifdef TEST
+
+int			main(void)
+{
+	char	*str;
+	char	**array;
+	char	d;
+	int		i;
+
+	i = 0;
+	d = '*';
+	str = strdup("*This*is*a*test*");
+	printf("\nstr: %s\n\n", str);
+	array = ft_strsplit(str, d);
+	printf("strsplit:\n");
+	while (i < word_count(str, d))
+		printf("%s\n", array[i++]);
+	printf("\n");
+	return (0);
+}
+
+#endif

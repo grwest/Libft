@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 17:32:25 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/24 22:39:20 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 20:19:44 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,18 @@ char	*ft_strtrim(char const *s)
 	s2 = ft_strsub(s, i, len);
 	return (s2);
 }
+
+#ifdef TEST
+
+int		main(void)
+{
+	char	*str;
+
+	str = ft_strdup("     hello world    ");
+	printf("Before trim: %s\n", str);
+	str = ft_strtrim(str);
+	printf("After trim: %s\n", str);
+	return (0);
+}
+
+#endif

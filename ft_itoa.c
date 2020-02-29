@@ -6,51 +6,67 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:00:43 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/25 19:30:44 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 12:41:50 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	num_append(int *i, char *s, int n)
+static int	get_len(int nbr)
 {
-	int	n_mod;
+	int		len;
 
-	n_mod = 0;
-	if (n >= 10)
+	len = 0;
+	if (nbr <= 0)
+		len++;
+	while (nbr)
 	{
-		n_mod = n % 10 + '0';
-		n = n / 10;
-		num_append(i, s, n);
-		s[(*i)++] = (char)n_mod;
+		len++;
+		nbr /= 10;
 	}
-	else if (n < 0)
-	{
-		s[(*i)++] = '-';
-		n = n * -1;
-		num_append(i, s, n);
-	}
-	else if (n < 10)
-		s[(*i)++] = (char)(n + '0');
+	return (len);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(int nbr)
 {
-	char	*s;
-	int		i;
+	char	*res;
+	int		len;
 
-	s = (char *)malloc(12 * sizeof(char));
-	i = 0;
-	if (!s)
+	len = get_len(nbr);
+	if (!(res = ft_strnew(len)))
 		return (NULL);
-	if (n == -2147483648)
+	res[len] = '\0';
+	if (nbr < 0)
+		res[0] = '-';
+	else if (nbr == 0)
+		res[0] = '0';
+	while (nbr)
 	{
-		s[0] = '-';
-		s[1] = '2';
-		n = 147483648;
-		i = 2;
+		len--;
+		if (nbr % 10 < 0)
+			res[len] = (nbr % 10) * -1 + '0';
+		else
+			res[len] = (nbr % 10) + '0';
+		nbr /= 10;
 	}
-	num_append(&i, s, n);
-	s[i] = '\0';
-	return (s);
+	return (res);
 }
+
+#ifdef TEST
+
+int			main(void)
+{
+	printf("\nInt: %d\n", 0);
+	printf("Ascii: %s\n\n", ft_itoa(0));
+	printf("Int: %d\n", 42);
+	printf("Ascii: %s\n\n", ft_itoa(42));
+	printf("Int: %d\n", -42);
+	printf("Ascii: %s\n\n", ft_itoa(-42));
+	printf("Int: %d\n", INT_MIN);
+	printf("Ascii: %s\n\n", ft_itoa(INT_MIN));
+	printf("Int: %d\n", INT_MAX);
+	printf("Ascii: %s\n\n", ft_itoa(INT_MAX));
+	return (0);
+}
+
+#endif

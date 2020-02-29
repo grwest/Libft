@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 14:14:04 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/19 20:59:01 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 14:56:36 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	char	*p;
 
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	p = dst;
+	while (*src)
+		*dst++ = *src++;
+	*dst = '\0';
+	return (p);
 }
+
+#ifdef TEST
+
+int		main(void)
+{
+	char	str[50];
+
+	ft_strcpy(str, "This is a string.");
+	printf("This is a string.\n");
+	printf("%s\n", str);
+	return (0);
+}
+
+#endif

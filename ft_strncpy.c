@@ -6,7 +6,7 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 14:19:54 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/19 21:02:45 by grwest           ###   ########.fr       */
+/*   Updated: 2020/02/27 13:20:28 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,17 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	}
 	return (dst);
 }
+
+#ifdef TEST
+
+int		main(void)
+{
+	char	str[50];
+
+	ft_strncpy(str, "This should stop after 15 characters.", 15);
+	printf("Before: This should stop after 15 characters.\n");
+	printf("After: %s\n", str);
+	return (0);
+}
+
+#endif
