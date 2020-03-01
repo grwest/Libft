@@ -12,10 +12,26 @@
 
 #include "../../includes/libft.h"
 
-#ifdef INPROGRESS
-
 void	ft_lstadd(t_list **alst, t_list *new)
 {
+	t_list	*elem;
+
+	elem = new;
+	elem->next = *alst;
+	*alst = elem;
+}
+
+#ifdef TEST
+
+int		main(void)
+{
+	t_list	*list;
+
+	list = ft_lstnew("test 1", 7);
+	list->next = ft_lstnew("test 2", 7);
+	list->next->next = ft_lstnew("test 3", 7);
+	printf("%s\n", (char *)list);
+	return (0);
 }
 
 #endif
