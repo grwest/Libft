@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/29 00:41:08 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/29 00:42:00 by grwest           ###   ########.fr       */
+/*   Created: 2020/03/01 06:37:40 by grwest            #+#    #+#             */
+/*   Updated: 2020/03/01 06:40:39 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int		ft_isblank(int c)
 {
-	void	*mem;
-
-	if (!(mem = malloc(count * size)))
-		return (NULL);
-	ft_bzero(mem, count * size);
-	return (mem);
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
 }
 
 #ifdef TEST
 
 int		main(void)
 {
-	char	*str;
+	int	c;
 
-	str = (char *)ft_calloc(ft_strlen("This is a test."), 1);
-	ft_strcpy(str, "This is a test.");
-	printf("%s\n", str);
+	c = 'A';
+	printf("\nChar: %c\n", c);
+	printf("Is Alpha: %d\n", ft_isblank(c));
+	c = 'a';
+	printf("\nChar: %c\n", c);
+	printf("Is Alpha: %d\n", ft_isblank(c));
+	c = '5';
+	printf("\nChar: %c\n", c);
+	printf("Is Alpha: %d\n", ft_isblank(c));
+	c = '*';
+	printf("\nChar: %c\n", c);
+	printf("Is Alpha: %d\n", ft_isblank(c));
+	c = ' ';
+	printf("\nChar: %c\n", c);
+	printf("Is Alpha: %d\n\n", ft_isblank(c));
 	return (0);
 }
 

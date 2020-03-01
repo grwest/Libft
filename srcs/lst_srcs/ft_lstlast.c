@@ -6,16 +6,16 @@
 /*   By: grwest <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 00:55:38 by grwest            #+#    #+#             */
-/*   Updated: 2020/02/29 00:56:19 by grwest           ###   ########.fr       */
+/*   Updated: 2020/03/01 06:45:16 by grwest           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-#ifdef INPROGRESS
-
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
+	return (lst);
 }
-
-#endif
